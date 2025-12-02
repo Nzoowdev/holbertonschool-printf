@@ -13,7 +13,7 @@
  *
  * Return: number of characters printed for this specifier
  */
-static int handle_specifier(const char *format, int *idx, va_list args,
+int handle_specifier(const char *format, int *idx, va_list args,
 							printer_t funcs[])
 {
 	int j = 0, printed = 0, found = 0;
@@ -76,7 +76,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] == '\0')
 		{
 			va_end(args);
-			return (-1); /* Cas du test: _printf("%") */
+			return (-1);
 		}
 
 		if (format[i] == '%')
